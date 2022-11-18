@@ -2,42 +2,42 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import Button from "../components/UI/Button";
 import colors from "../constants/colors";
 
-const dummy_data = ['Cicool', 'Chadto', 'Elvano', 'Kogan', 'Coach', ];
+const dummy_data = ['Cicool', 'Chadto', 'Elvano', 'Kogan', 'Coach',];
 
 const getAllocationFields = (data) => {
     const allocationFields = [];
     const limit = Math.floor(data.length / 2);
-    for(let i = 0; i < limit; i ++){
+    for (let i = 0; i < limit; i++) {
         const result = (
             <View style={styles.allocContainer}>
                 <View style={styles.allocField}>
-                    <TextInput 
-                    style={styles.allocInput}
-                    keyboardType='numeric'
-                    maxLength={2}
+                    <TextInput
+                        style={styles.allocInput}
+                        keyboardType='numeric'
+                        maxLength={2}
                     />
                     <Text style={styles.allocLabel}>{data[i * 2]}</Text>
                 </View>
                 <View style={styles.allocField}>
-                    <TextInput 
-                    style={styles.allocInput}
-                    keyboardType='numeric'
-                    maxLength={2}
+                    <TextInput
+                        style={styles.allocInput}
+                        keyboardType='numeric'
+                        maxLength={2}
                     />
                     <Text style={styles.allocLabel}>{data[(i * 2) + 1]}</Text>
                 </View>
             </View>
         );
         allocationFields.push(result);
-    } 
-    if(data.length % 2 == 1){
+    }
+    if (data.length % 2 == 1) {
         allocationFields.push(
             <View style={styles.allocContainer}>
                 <View style={styles.allocField}>
-                    <TextInput 
-                    style={styles.allocInput}
-                    keyboardType='numeric'
-                    maxLength={2}
+                    <TextInput
+                        style={styles.allocInput}
+                        keyboardType='numeric'
+                        maxLength={2}
                     />
                     <Text style={styles.allocLabel}>{data[data.length - 1]}</Text>
                 </View>
@@ -60,7 +60,7 @@ const BillForm = () => {
                 </View>
                 <View style={styles.fieldContainer}>
                     <Text style={styles.fieldLabel}>DESCRIPTION</Text>
-                    <TextInput 
+                    <TextInput
                         style={styles.input}
                         // onChangeText={descriptionFieldHandler}
                         placeholder="Description"
@@ -68,7 +68,7 @@ const BillForm = () => {
                 </View>
                 <View style={styles.fieldContainer}>
                     <Text style={styles.fieldLabel}>AMOUNT</Text>
-                    <TextInput 
+                    <TextInput
                         style={styles.input}
                         keyboardType='numeric'
                         // onChangeText={descriptionFieldHandler}
@@ -101,6 +101,7 @@ export default BillForm;
 const styles = StyleSheet.create({
     container: {
         marginHorizontal: 40,
+        marginTop: 20,
         minHeight: '75%',
         flex: 1,
     },
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
         color: colors.primaryText,
         fontWeight: '900',
     },
-    
+
     fieldLabel: {
         fontWeight: '700',
         color: colors.primaryText,

@@ -26,15 +26,15 @@ const dummy_data = [
     },
 ]
 
-const Bills = () => {
+const Bills = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.upperContainer}>
                 <Text style={styles.pageTitle}>ALL BILLS</Text>
-                <Button title={'Add New'}/>
+                <Button title={'Add New'} onPress={() => { navigation.navigate('Add Detail') }} />
             </View>
             <ScrollView style={styles.scrollContainer}>
-            {dummy_data.map(data => <BillSummary key={data.id} description={data.description} date={data.date} amount={data.amount} />)}
+                {dummy_data.map(data => <BillSummary key={data.id} description={data.description} date={data.date} amount={data.amount} />)}
             </ScrollView>
         </View>)
 };
@@ -44,12 +44,13 @@ export default Bills;
 const styles = StyleSheet.create({
     container: {
         marginHorizontal: 40,
+        marginTop: 20,
         flex: 1,
     },
     upperContainer: {
         marginBottom: 16,
         flexDirection: 'row',
-        justifyContent:'space-between',
+        justifyContent: 'space-between',
         alignItems: 'center'
     },
     pageTitle: {
